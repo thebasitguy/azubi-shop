@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Product List</h1>
+      <div id="cart" aria-label="Shopping Cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="search-bar">
+      <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search products..." 
+        oninput="filterProducts()" 
+        aria-label="Search products">
+    </section>
+
+    <section id="productList" class="product-list">
+      <!-- Product items will be dynamically rendered here -->
+    </section>
+  </main>
+
+  <!-- Product Details Modal -->
+  <div id="productModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <img id="modalProductImage" alt="Product Image">
+      <h2 id="modalProductName"></h2>
+      <p id="modalProductDescription"></p>
+      <p id="modalProductPrice"></p>
+      <button id="modalAddToCart" onclick="addToCartFromModal()">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Section -->
+  <aside id="cartPanel" class="cart-panel">
+    <button id="cartClose" aria-label="Close Cart">Close ✖</button>
+    <h3>Your Cart</h3>
+    <div id="cartItems">
+      <!-- Cart items will dynamically render here -->
+    </div>
+    <p id="totalPrice">Total: $0.00</p>
+    <button id="checkoutButton">Checkout</button>
+  </aside>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
